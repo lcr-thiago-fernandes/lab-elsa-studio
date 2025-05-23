@@ -18,6 +18,8 @@ public static class ServiceCollectionExtensions
     {
         // Add the login module.
         services.AddLoginModuleCore();
+
+        services.UseElsaIdentity();
         
         // Register Blazored LocalStorage.
         services.AddBlazoredLocalStorage();
