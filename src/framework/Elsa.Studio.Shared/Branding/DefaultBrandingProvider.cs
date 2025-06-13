@@ -7,7 +7,8 @@
 public class DefaultBrandingProvider : IBrandingProvider
 {
     /// <inheritdoc />
-    public virtual  string AppName => $"Elsa {ToolVersion.GetDisplayVersion()}";
+    //public virtual  string AppName => $"Elsa {ToolVersion.GetDisplayVersion()}";
+    public virtual string AppName => $"Lucere Desk {ToolVersion.GetDisplayVersion()}";
 
     /// <inheritdoc />
     public virtual string? LogoUrl => GetLogoUrl(false);

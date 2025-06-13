@@ -20,7 +20,31 @@ public class RemoteActivityRegistryProvider(IBackendApiClientProvider remoteBack
             Refresh = true
         };
         var response = await api.ListAsync(request, cancellationToken);
-        
-        return response.Items;
+
+        var categoriasParaRemover = new[]
+{
+    "Composition",
+    "Console",
+    "Download File",
+    "Fork (flow)",
+    "HTTP Endpoint",
+    "HTTP File Response",
+    "HTTP Request (flow)",
+    "Looping",
+    "MassTransit",
+    "Scripting",
+    "SQL",
+    "Storage",
+    "Switch (flow)",
+    "Web"
+};
+
+        var filteredItems = response.Items
+            .Where(item => !categoriasParaRemover.Contains(item.Category) && !categoriasParaRemover.Contains(item.DisplayName))
+            .ToList();
+
+        return filteredItems;
+
+
     }
 }
